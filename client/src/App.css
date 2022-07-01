@@ -8,6 +8,10 @@
   width: 70%;
 }
 
+.car-detail-label {
+  font-weight: bold;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

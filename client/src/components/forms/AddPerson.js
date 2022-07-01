@@ -39,54 +39,56 @@ const AddPerson = ()=> {
   }
 
   return (
-    <Form
-      form={form}
-      name="add-person-form"
-      layout="inline"
-      size="large"
-      style={{ marginBottom: "40px" }}
-      onFinish={onFinish}
-    >
-      <Form.Item
-        name="firstName"
-        rules={[
-          {
-            required: true,
-            message: "Please input your First Name",
-          },
-        ]}
+    <>
+    <h2>Add a Person</h2>
+      <Form
+        form={form}
+        name="add-person-form"
+        layout="inline"
+        size="large"
+        style={{ marginBottom: "80px" }}
+        onFinish={onFinish}
       >
-        <Input placeholder="i.e. John"></Input>
-      </Form.Item>
-      <Form.Item
-        name="lastName"
-        rules={[
-          {
-            required: true,
-            message: "Please input your Last Name",
-          },
-        ]}
-      >
-        <Input placeholder="i.e. Smith"></Input>
-      </Form.Item>
-      <Form.Item shouldUpdate={true}>
-        {/* What is this syntax? */}
-        {() => (
-          <Button
-            type="primary"
-            htmlType="submit"
-            disabled={
-              !form.isFieldsTouched(true) ||
-              form
-                .getFieldError()
-                .filter(({ errors }) => errors.length).length
-            }
-          >
-            Add Person
-          </Button>
-        )}
-      </Form.Item>
-    </Form>
+        <Form.Item
+          name="firstName"
+          rules={[
+            {
+              required: true,
+              message: "Please input your First Name",
+            },
+          ]}
+        >
+          <Input placeholder="i.e. John"></Input>
+        </Form.Item>
+        <Form.Item
+          name="lastName"
+          rules={[
+            {
+              required: true,
+              message: "Please input your Last Name",
+            },
+          ]}
+        >
+          <Input placeholder="i.e. Smith"></Input>
+        </Form.Item>
+        <Form.Item shouldUpdate={true}>
+          {/* What is this syntax? */}
+          {() => (
+            <Button
+              type="primary"
+              htmlType="submit"
+              disabled={
+                !form.isFieldsTouched(true) ||
+                form.getFieldError().filter(({ errors }) => errors.length)
+                  .length
+              }
+            >
+              Add Person
+            </Button>
+          )}
+        </Form.Item>
+      </Form>
+    </>
   );
 }
 

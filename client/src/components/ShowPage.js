@@ -37,7 +37,8 @@ const ShowPage = (props) => {
   const {firstName, lastName, ownCars} = personWithCars
 
   return (
-    <>
+    <div className="App">
+      <h1 style={{margin:'40px auto'}}>Detail Page</h1>
       <Card
         style={styles.card}
       >
@@ -68,8 +69,18 @@ const ShowPage = (props) => {
              />
         ))}
       </Card>
-      <Link to="/">GO BACK TO HOME</Link>
-    </>
+      <Link
+        to="/" 
+        style={{
+          fontWeight:'bold',
+          fontSize: '25px',
+          color: 'navy',
+          textDecoration: 'underline',
+          margin: '40px auto',
+        }}>
+          GO BACK TO HOME
+        </Link>
+    </div>
   );
 };
 export default ShowPage;

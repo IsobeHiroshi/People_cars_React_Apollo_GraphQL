@@ -1,5 +1,3 @@
-import { useQuery } from '@apollo/client'
-import { GET_PEOPLE_AND_CARS } from "../../queries";
 import { List } from 'antd'
 import Person from '../listItems/Person'
 
@@ -10,17 +8,8 @@ const getStyles = ()=> ({
   }
 })
 
-const People = ()=> {
-  const styles = getStyles()
-  const { loading, error, data } = useQuery(GET_PEOPLE_AND_CARS);
-  if (loading) return 'Loading...'
-  if (error) return `Error! ${error.message}`
-  const peopleWithCars = data.people.map((person)=>{
-    return {
-      ...person,
-      ownCars: data.cars.filter((car)=> car.personId === person.id)
-    }
-  })
+const People = ({ peopleWithCars }) => {
+  const styles = getStyles();
 
   return (
     <List grid={{ gutter: 20, column: 1 }} style={styles.list}>
@@ -37,6 +26,6 @@ const People = ()=> {
       ))}
     </List>
   );
-}
+};
 
 export default People;

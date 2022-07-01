@@ -7,10 +7,10 @@ import { EditOutlined } from "@ant-design/icons";
 
 const CarDetail = (props) => {
   const [id] = useState(props.id);
-  const [year, setYear] = useState(props.year);
-  const [make, setMake] = useState(props.make);
-  const [model, setModel] = useState(props.model);
-  const [price, setPrice] = useState(props.price);
+  const [, setYear] = useState(props.year);
+  const [, setMake] = useState(props.make);
+  const [, setModel] = useState(props.model);
+  const [, setPrice] = useState(props.price);
   const [personId, setPersonId] = useState(props.personId);
   const [editMode, setEditMode] = useState(false);
 
@@ -65,11 +65,21 @@ const CarDetail = (props) => {
             <RemoveCar id={id} />,
           ]}
         >
-          <p>Year: {props.year}</p>
-          <p>Make: {props.make}</p>
-          <p>Model: {props.model}</p>
-          <p>Price: ${props.price}</p>
-          <p>Owner ID: {props.personId}</p>
+          <p>
+            <span className="car-detail-label">Year:</span> {props.year}
+          </p>
+          <p>
+            <span className="car-detail-label">Make:</span> {props.make}
+          </p>
+          <p>
+            <span className="car-detail-label">Model:</span> {props.model}
+          </p>
+          <p>
+            <span className="car-detail-label">Price:</span> ${props.price}
+          </p>
+          <p>
+            <span className="car-detail-label">Owner</span> ID: {props.personId}
+          </p>
         </Card>
       )}
     </div>

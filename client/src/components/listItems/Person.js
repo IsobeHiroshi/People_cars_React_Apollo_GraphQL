@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from "react-router-dom";
-import { Card, Button } from 'antd'
+import { Card } from 'antd'
 import RemovePerson from '../buttons/RemovePerson'
 import UpdatePerson from '../forms/UpdatePerson'
 
@@ -11,6 +11,8 @@ const getStyles = () => ({
   card: {
     width: "500px",
     backgroundColor: "#d1fffd",
+    marginBottom: '70px',
+    border: '1px solid darkgrey',
   },
 });
 
@@ -66,7 +68,14 @@ const Person = (props)=> {
           {props.ownCars.map(({ id, make, model }) => (
             <Car key={id} id={id} make={make} model={model} />
           ))}
-          <Link to={`/people/${id}`}>Learn More to Edit Car Info</Link>
+          <Link
+            to={`/people/${id}`}
+            style={{
+              fontWeight: 'bold',
+              textDecoration: 'underline',
+              color: 'navy',
+            }}
+            >Learn More to Edit Car Info</Link>
         </Card>
       )}
     </div>
