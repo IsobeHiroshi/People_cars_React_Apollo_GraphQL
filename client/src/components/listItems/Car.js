@@ -1,27 +1,27 @@
-import { useState } from 'react'
-import { Card } from 'antd'
-import RemovePerson from '../buttons/RemovePerson'
-import UpdatePerson from '../forms/UpdatePerson'
+import { useState } from "react";
+import { Card } from "antd";
+import RemovePerson from "../buttons/RemovePerson";
+import UpdatePerson from "../forms/UpdatePerson";
 
-import { EditOutlined } from '@ant-design/icons'
+import { EditOutlined } from "@ant-design/icons";
 
 const getStyles = () => ({
   card: {
+    backgroundColor: "red",
     width: "500px",
-    backgroundColor: "#d1fffd",
   },
 });
 
-const Person = (props)=> {
-  const styles = getStyles()
-  const [id] =useState(props.id)
+const Car = (props) => {
+  const styles = getStyles();
+  const [id] = useState(props.id);
   const [firstName, setFirstName] = useState(props.firstName);
   const [lastName, setLastName] = useState(props.lastName);
   const [editMode, setEditMode] = useState(false);
 
-  const handleButtonClick = ()=> {
-    setEditMode(!editMode)
-  }
+  const handleButtonClick = () => {
+    setEditMode(!editMode);
+  };
 
   const updateStateVariable = (variable, value) => {
     switch (variable) {
@@ -56,7 +56,7 @@ const Person = (props)=> {
         >
           {firstName} {lastName}
           {props.ownCars.map(({ id, make, model }) => (
-            <Card type="inner" key={id}>
+            <Card key={id}>
               {make} {model}
             </Card>
           ))}
@@ -64,6 +64,6 @@ const Person = (props)=> {
       )}
     </div>
   );
-}
+};
 
-export default Person;
+export default Car;
