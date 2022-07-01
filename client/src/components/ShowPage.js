@@ -36,8 +36,6 @@ const ShowPage = (props) => {
 
   const {firstName, lastName, ownCars} = personWithCars
 
-  console.log(personWithCars);
-
   return (
     <>
       <Card
@@ -65,7 +63,9 @@ const ShowPage = (props) => {
             year={year}
             make={make}
             model={model}
-            price={price} />
+            price={price}
+            personId={person.id}
+             />
         ))}
       </Card>
       <Link to="/">GO BACK TO HOME</Link>

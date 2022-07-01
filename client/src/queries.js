@@ -37,6 +37,11 @@ export const GET_PERSON_WITH_CARS = gql`
       firstName
       lastName
     }
+    people {
+      id
+      firstName
+      lastName
+    }
     cars {
       id
       year
@@ -113,6 +118,33 @@ export const ADD_CAR = gql`
 export const REMOVE_CAR = gql`
   mutation RemoveCar($id: String!) {
     removeCar(id: $id) {
+      id
+      year
+      make
+      model
+      price
+      personId
+    }
+  }
+`;
+
+export const UPDATE_CAR = gql`
+  mutation Mutation(
+    $id: String!
+    $year: Int
+    $make: String
+    $model: String
+    $price: Float
+    $personId: String
+  ) {
+    updateCar(
+      id: $id
+      year: $year
+      make: $make
+      model: $model
+      price: $price
+      personId: $personId
+    ) {
       id
       year
       make

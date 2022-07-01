@@ -36,7 +36,6 @@ const AddCar = ()=> {
       },
       update: (proxy, { data: { addCar } }) => {
         const data = proxy.readQuery({ query: GET_CARS })
-        console.log(data)
         proxy.writeQuery({
           query: GET_CARS,
           data: {
@@ -109,7 +108,7 @@ const AddCar = ()=> {
           },
         ]}
       >
-        <Input placeholder="i.e. 2000"></Input>
+        <Input placeholder="i.e. 20,000"></Input>
       </Form.Item>
       <Form.Item
         rules={[

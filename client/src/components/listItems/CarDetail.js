@@ -5,21 +5,74 @@ import UpdateCar from "../forms/UpdateCar";
 
 import { EditOutlined } from "@ant-design/icons";
 
-const CarDetail = ({ id, year, make, model, price }) => {
+const CarDetail = (props) => {
+  const [id] = useState(props.id);
+  const [year, setYear] = useState(props.year);
+  const [make, setMake] = useState(props.make);
+  const [model, setModel] = useState(props.model);
+  const [price, setPrice] = useState(props.price);
+  const [personId, setPersonId] = useState(props.personId);
+  const [editMode, setEditMode] = useState(false);
+
+  const handleButtonClick = () => {
+    setEditMode(!editMode);
+  };
+
+  const updateStateVariable = (variable, value) => {
+    switch (variable) {
+      case "year":
+        setYear(value);
+        break;
+      case "make":
+        setMake(value);
+        break;
+      case "model":
+        setModel(value);
+        break;
+      case "price":
+        setPrice(value);
+        break;
+      case "personId":
+        setPersonId(value);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
-    <Card
-      type="inner"
-      style={{
-        width: "80%",
-        margin: "5px auto",
-      }}
-      actions={[<RemoveCar id={id} />]}
-    >
-      <p>Year: {year}</p>
-      <p>Make: {make}</p>
-      <p>Model: {model}</p>
-      <p>Price: ${price}</p>
-    </Card>
+    <div>
+      {editMode ? (
+        <UpdateCar
+          id={props.id}
+          year={props.year}
+          make={props.make}
+          model={props.model}
+          price={props.price}
+          personId={personId}
+          onButtonClick={handleButtonClick}
+          updateStateVariable={updateStateVariable}
+        />
+      ) : (
+        <Card
+          type="inner"
+          style={{
+            width: "80%",
+            margin: "5px auto",
+          }}
+          actions={[
+            <EditOutlined key="edit" onClick={handleButtonClick} />,
+            <RemoveCar id={id} />,
+          ]}
+        >
+          <p>Year: {props.year}</p>
+          <p>Make: {props.make}</p>
+          <p>Model: {props.model}</p>
+          <p>Price: ${props.price}</p>
+          <p>Owner ID: {props.personId}</p>
+        </Card>
+      )}
+    </div>
   );
 };
 
