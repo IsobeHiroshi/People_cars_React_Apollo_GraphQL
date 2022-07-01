@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from "react-router-dom";
 import { Card } from 'antd'
 import RemovePerson from '../buttons/RemovePerson'
 import UpdatePerson from '../forms/UpdatePerson'
@@ -55,10 +56,17 @@ const Person = (props)=> {
           ]}
           style={styles.card}
         >
-          {firstName} {lastName}
+          <p style={{
+            fontWeight: 'bold',
+            marginBottom: '20px',
+            fontSize: '20px',
+            }}>
+            {firstName} {lastName}
+          </p>
           {props.ownCars.map(({ id, make, model }) => (
-            <Car key={id} id={id} make={make} model={model}/>
+            <Car key={id} id={id} make={make} model={model} />
           ))}
+          <Link to='/detail'>Learn More</Link>
         </Card>
       )}
     </div>
