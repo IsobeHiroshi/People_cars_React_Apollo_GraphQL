@@ -40,6 +40,9 @@ const CarDetail = (props) => {
     }
   };
 
+  const numberWithComma = new Intl.NumberFormat();
+  const formattedPrice = numberWithComma.format(props.price);
+
   return (
     <div>
       {editMode ? (
@@ -59,6 +62,8 @@ const CarDetail = (props) => {
           style={{
             width: "80%",
             margin: "5px auto",
+            border: "1px solid darkgrey",
+            marginBottom: "40px",
           }}
           actions={[
             <EditOutlined key="edit" onClick={handleButtonClick} />,
@@ -75,7 +80,7 @@ const CarDetail = (props) => {
             <span className="car-detail-label">Model:</span> {props.model}
           </p>
           <p>
-            <span className="car-detail-label">Price:</span> ${props.price}
+            <span className="car-detail-label">Price:</span> ${formattedPrice}
           </p>
           <p>
             <span className="car-detail-label">Owner</span> ID: {props.personId}
