@@ -91,3 +91,16 @@ export const ADD_CAR = gql`
     }
   }
 `;
+
+export const REMOVE_CAR = gql`
+  mutation RemoveCar($id: String!) {
+    removeCar(id: $id) {
+      id
+      year
+      make
+      model
+      price
+      personId
+    }
+  }
+`;

@@ -4,6 +4,7 @@ import RemovePerson from '../buttons/RemovePerson'
 import UpdatePerson from '../forms/UpdatePerson'
 
 import { EditOutlined } from '@ant-design/icons'
+import Car from './Car'
 
 const getStyles = () => ({
   card: {
@@ -56,9 +57,7 @@ const Person = (props)=> {
         >
           {firstName} {lastName}
           {props.ownCars.map(({ id, make, model }) => (
-            <Card type="inner" key={id}>
-              {make} {model}
-            </Card>
+            <Car key={id} id={id} make={make} model={model}/>
           ))}
         </Card>
       )}
