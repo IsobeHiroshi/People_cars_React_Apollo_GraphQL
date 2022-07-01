@@ -15,8 +15,6 @@ const AddCar = ()=> {
   const [form] = Form.useForm();
   const [, forceUpdate] = useState();
 
-  console.log(personId)
-
     useEffect(() => {
       forceUpdate({});
     }, []);

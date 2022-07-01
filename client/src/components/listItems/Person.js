@@ -54,7 +54,7 @@ const Person = (props)=> {
         <Card
           actions={[
             <EditOutlined key="edit" onClick={handleButtonClick} />,
-            <RemovePerson id={id} />,
+            <RemovePerson id={id} ownCars={props.ownCars}/>,
           ]}
           style={styles.card}
         >
