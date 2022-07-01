@@ -1,15 +1,5 @@
 import { gql } from '@apollo/client';
 
-export const GET_PEOPLE = gql`
-  {
-    people {
-      id
-      firstName
-      lastName
-    }
-  }
-`
-
 export const GET_PEOPLE_AND_CARS = gql`
   {
     people {
@@ -29,6 +19,34 @@ export const GET_PEOPLE_AND_CARS = gql`
 `;
 
 /* Queries for people */
+
+export const GET_PEOPLE = gql`
+  {
+    people {
+      id
+      firstName
+      lastName
+    }
+  }
+`;
+
+export const GET_PERSON_WITH_CARS = gql`
+  query Person($personId: String!) {
+    person(id: $personId) {
+      id
+      firstName
+      lastName
+    }
+    cars {
+      id
+      year
+      make
+      model
+      price
+      personId
+    }
+  }
+`;
 
 export const ADD_PERSON = gql`
   mutation AddPerson($id: String!, $firstName: String!, $lastName: String!) {

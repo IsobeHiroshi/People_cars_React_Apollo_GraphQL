@@ -16,8 +16,8 @@ const App = ()=> {
     <BrowserRouter>
       <ApolloProvider client={client}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/detail" element={<ShowPage />} />
+          <Route path="/" element={<Home />} exact/>
+          <Route path="/people/:personId" element={<ShowPage />} />
         </Routes>
       </ApolloProvider>
     </BrowserRouter>

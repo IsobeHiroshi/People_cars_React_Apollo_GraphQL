@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from "react-router-dom";
-import { Card } from 'antd'
+import { Card, Button } from 'antd'
 import RemovePerson from '../buttons/RemovePerson'
 import UpdatePerson from '../forms/UpdatePerson'
 
@@ -66,7 +66,7 @@ const Person = (props)=> {
           {props.ownCars.map(({ id, make, model }) => (
             <Car key={id} id={id} make={make} model={model} />
           ))}
-          <Link to='/detail'>Learn More</Link>
+          <Link to={`/people/${id}`}>Learn More to Edit Car Info</Link>
         </Card>
       )}
     </div>
